@@ -1,0 +1,23 @@
+<h1>Edit task</h1>
+
+<%= form_for @task do |f| %>
+  <% if @task.errors.any? %>
+       <h2> Errors:</h2>
+   <ul>
+    <% @task.errors.full_messages.each do |message| %>
+      <li><%= message %>
+       <% end %>
+   </ul>
+<% end %>
+ <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+ </p>
+ <p>
+      <%= f.label :status %><br />
+      <%= f.text_area :status %>
+ </p>
+ <p>
+      <%= f.submit "Update the task" %>
+ </p>
+<% end %>

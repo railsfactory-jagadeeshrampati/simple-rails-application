@@ -1,0 +1,12 @@
+<h1>TODO WEB APP</h1>
+<% @task.each do |item| %>
+ <%= link_to item.name,item %><br><br>
+ <%=  item.status %>
+   <p>
+      <%= link_to "Edit", edit_task_path(item) %> |
+      <%= link_to "Mark as Complete",task_mark_path(item) %> |
+      <%= link_to "Delete", item, :method => :delete %>
+   </p>
+<hr/>
+<% end %>
+<p><%= link_to "Add a New Task", new_task_path %></p>
