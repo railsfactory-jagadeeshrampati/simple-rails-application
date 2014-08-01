@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
  # resources :tasks
+root :to =>"home#index"
 resources :tasks do
 get 'mark'
 end

@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
  def index
-    @task = Task.all
+    @task = Task.where(user_id: current_user.id)
  end
   def show
      @task = Task.find(params[:id])
@@ -12,12 +12,13 @@ class TasksController < ApplicationController
 
   def  create
       @task = Task.new(params[:task].permit(:name,:status))
-      
+      @task.user = current_user
      if @task.save
-        redirect_to tasks_path, :notice => "Your task was saved"
+        redirect_to tasks_path, :notice => "your task has been saved"
      else
          render "new"
      end
+
   end
 
   def  edit

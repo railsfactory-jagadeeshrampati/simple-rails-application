@@ -5,7 +5,7 @@
    <p>
       <%= link_to "Edit", edit_task_path(item) %> |
       <%= link_to "Mark as Complete",task_mark_path(item) %> |
-      <%= link_to "Delete", item, :method => :delete %>
+      <%= link_to "Delete", item, :confirm =>"Are you sure?", :method => :delete %>
    </p>
 <hr/>
 <% end %>
