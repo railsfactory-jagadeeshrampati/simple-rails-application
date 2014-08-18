@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+body { 
+       background-image: url('/index1.jpeg');
+       background-color: #F5F5F5;
+       font-style: italic;
+       font-size: medium;   
+      
+    }
+

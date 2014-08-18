@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
- #attr_accessor :title, :content
-
- validates :title, :content, :presence => true
- validates :title, :length => { :minimum => 2 }
- validates :title, :uniqueness => true
+belongs_to :user
+has_many :comments, :dependent => :destroy
+ validates :title, :content, :presence => true 
+ #validates :title, :uniqueness => true, :scope => :user_id
+ validates_uniqueness_of :title, scope: :user_id
 
 end

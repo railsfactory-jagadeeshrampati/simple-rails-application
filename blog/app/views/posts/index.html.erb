@@ -1,12 +1,24 @@
-<h1>Our Blog</h1>
+<h1>Your Posts</h1>
 <% @posts.each do |post| %>
    <h2><%= link_to post.title, post %></h2>
    <p><%= post.content %></p>
    <p>
       <%= link_to "Edit", edit_post_path(post) %> |
-      <%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %>
+      <%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %> 
+      
    </p>
    <hr />
 <% end %>
+<h1>Your Friends Posts</h1>
+<% @posts1.each do |post| %>
 
-<p><%= link_to "Add a New Post", new_post_path %></p>
+   <h2><%= link_to post.title, post %></h2>
+   <p><%= post.content %></p>
+   <hr />
+<% end %>
+<p><%= link_to "Add a new post", new_post_path %> </p>
+
+<%= will_paginate @posts %>
+
+
+

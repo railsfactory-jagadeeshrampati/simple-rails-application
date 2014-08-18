@@ -18,6 +18,10 @@
       <%= f.text_area :content %>
  </p>
  <p>
+      <%= f.label :public %><br />
+      <%= f.check_box :visible %>
+ </p>
+ <p>
       <%= f.submit "Add a New Post" %>
  </p>
 <% end %>

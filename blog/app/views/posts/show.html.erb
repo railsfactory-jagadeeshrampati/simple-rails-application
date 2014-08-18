@@ -1,3 +1,16 @@
+<% if user_signed_in? %>
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
-<small><%= @post.created_at %></small>
+<small>Added <%= time_ago_in_words(@post.created_at) %> ago </small><br />
+ 
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+  <%= link_to "Back",posts_path%>
+<% else %>
+  <h2>please sign to view page</h2>
+
+<% end %>
