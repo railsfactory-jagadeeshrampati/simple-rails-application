@@ -2,9 +2,8 @@ class PostsController < ApplicationController
 before_filter :check_privileges!, only: [:show, :new, :create, :edit, :save, :destroy]
 before_action :authenticate_user!
  def index
-     @posts= Post.where(user_id: current_user.id).paginate(page: params[:page], per_page: 3)
-    #@posts1= Post.joins(:user).where
-     @posts1=Post.where.not(visible: 0,user_id: current_user.id)
+   @posts = Post.where(user_id: current_user.id)#.paginate(page: params[:page], per_page: 2)
+   #@posts1 = Post.where.not(user_id: current_user.id, visible: 0)
   
 end
  
